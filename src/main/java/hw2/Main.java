@@ -4,6 +4,6 @@ import java.time.Clock;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("cioaosasas");
+        System.out.println("pippo");
     }
 }

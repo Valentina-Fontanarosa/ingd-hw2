@@ -45,10 +45,6 @@ public class IndexBuilder {
         // Creazione di un indice in una directory specifica
         try (Directory dir_index = FSDirectory.open(Paths.get(this.indexPath))) {
 
-            // Creazione di un analyzer per il nome del file e il contenuto del file
-            //Analyzer nameAnalyzer = new StandardAnalyzer();
-            //Analyzer contentAnalyzer = new StandardAnalyzer();
-
             Analyzer analyzer = new PerFieldAnalyzerWrapper(defaultAnalyzer, perFieldAnalyzer);
 
             // Configurazione dell'IndexWriter
@@ -70,7 +66,6 @@ public class IndexBuilder {
                 File[] files = dir_data.listFiles();
 
                 if (files != null) {
-                    //System.out.println(Arrays.stream(files).toList().toString());
                     for (File file : files) {
                         if (file.isFile() && file.getName().toLowerCase().endsWith(".txt"))
                             indexFiles(file);
@@ -130,8 +125,6 @@ public class IndexBuilder {
                 IndexSearcher searcher = new IndexSearcher(reader);
 
                 Collection<String> indexedFields = FieldInfos.getIndexedFields(reader);
-
-                //FieldInfos fieldInfos = FieldInfos.getMergedFieldInfos(reader);
 
                 for (String field : indexedFields) {
                     System.out.println(searcher.collectionStatistics(field));

@@ -79,7 +79,6 @@ public class QueryBuilder {
     private Query buildLuceneQuery(String input) {
         BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();
 
-        //String[] terms = input.split("\\s+");
         String[] terms = input.split("\\s+(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
         String fieldName = terms[0]; // Estrai il nome del campo dalla prima parola
         String operator = "SHOULD"; // Default operator is OR

@@ -220,6 +220,8 @@ public class SamplesTest {
         QueryParser parser = new QueryParser("contenuto", new WhitespaceAnalyzer());
         Query query = parser.parse("+ingegneria dei +dati");
 
+        System.out.println("Lucene Query: " + query);
+
         try (Directory directory = FSDirectory.open(path)) {
             indexDocs(directory, null);
             try (IndexReader reader = DirectoryReader.open(directory)) {
@@ -294,6 +296,7 @@ public class SamplesTest {
 
     private void indexDocs(Directory directory, Codec codec) throws IOException {
         Analyzer defaultAnalyzer = new StandardAnalyzer();
+
         CharArraySet stopWords = new CharArraySet(Arrays.asList("in", "dei", "di"), true);
         Map<String, Analyzer> perFieldAnalyzers = new HashMap<>();
         perFieldAnalyzers.put("contenuto", new StandardAnalyzer(stopWords));

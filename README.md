@@ -19,7 +19,10 @@ L’utilizzo di tale analyzer ha fatto in modo che la ricerca di un documento po
 Per quanto riguarda l’indice relativo al titolo del file “contenuto” si è ritenuto opportuno utilizzare uno StandardAnalyze. 
 
 In particolare, l’analizzatore StandardAnalyzer in Apache Lucene è uno dei tokenizzatori che suddivide il testo in termini e applica diverse operazioni di analisi, tra cui la rimozione di stop words e la conversione dei termini in lettere minuscole. Per utilizzare una lista personalizzata di stop words è stato creato un CharArraySet contenente le stop words personalizzate:
+
 <img width="336" alt="image" src="https://github.com/user-attachments/assets/6fc35769-2cd1-44b2-a17c-48fdbf23929c">
+
+
 <img width="408" alt="image" src="https://github.com/user-attachments/assets/62612aae-10e0-4dc5-9b54-3de06699a559">
 
 L’utilizzo di tale analyzer ha fatto in modo che la ricerca del contenuto di un documento sia più efficiente con tempi di esecuzione, in quanto l’utilizzo di stop words consente di effettuare la ricerca in modo rapido e indipendentemente dalla presenza di specifiche parole ritenute superflue (ad esempio la presenza di articoli, preposizioni aggettivi e congiunzioni)!
@@ -31,7 +34,8 @@ Inoltre, il campo sumDocFreq rappresenta la somma delle frequenze dei termini ne
  <img width="482" alt="image" src="https://github.com/user-attachments/assets/62a57d78-5971-4a43-9222-5b7751f24930">
 
 
-Con riferimento al tempo di esecuzione dell’indice, il tempo medio totale è risultato pari a 912 ms. 
+Con riferimento al tempo di esecuzione dell’indice, il tempo medio totale è risultato pari a 912 ms.
+
 <img width="141" alt="image" src="https://github.com/user-attachments/assets/19370b3c-662e-4cf8-8219-3fce7f8ffe60">
 
  
@@ -42,9 +46,8 @@ Di conseguenza se si vuole aumentare il numero di file .txt da indicizzare, il t
 Infine, le query usate per testare il sistema sono state diverse. Le più significative sono di seguito illustrate:
 
 Test per verificare la correttezza del TermQuery:
+
 <img width="419" alt="image" src="https://github.com/user-attachments/assets/c6c7fe74-6660-4d77-baa4-cd4f9dd29cfc">
-
-
  
 
 Risultato:
